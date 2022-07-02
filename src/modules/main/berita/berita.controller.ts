@@ -44,6 +44,7 @@ export class BeritaController {
     return this.beritaService.getAllBerita();
   }
 
+  ///new juga
   @Get('property')
   getAllPropertyPembeli(@GetProperty() property: Property) {
     return this.beritaService.getAllProperty();
@@ -56,6 +57,7 @@ export class BeritaController {
     return this.beritaService.getBeritaById(id);
   }
 
+  ///new baru
   @Get('property-detail/:id')
   @UseGuards(RoleGuard(Role.Admin))
   @UseGuards(JwtGuard)

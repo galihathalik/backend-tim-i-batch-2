@@ -17,6 +17,7 @@ export class BeritaService {
     return await this.beritaRepository.getAllBerita();
   }
 
+  //new
   async getAllProperty(): Promise<Property[]> {
     const property = await this.beritaRepository.query(
       'SELECT * FROM pembeli INNER JOIN property ON pembeli.id = property.pembeliId ',
@@ -32,6 +33,7 @@ export class BeritaService {
     return berita;
   }
 
+  ///new
   async getPropertyById(id: string): Promise<Property> {
     const propertyDetail = await this.beritaRepository
       .createQueryBuilder('property')
