@@ -34,7 +34,7 @@ export class PromoController {
   getAllPromo(@GetPromo() promo: Promo) {
     return this.promoService.getAllPromo();
   }
-
+ 
   @Get('/:id')
   getPromoById(@Param('id', UUIDValidationPipe) id: string): Promise<Promo> {
     return this.promoService.getPromoById(id);

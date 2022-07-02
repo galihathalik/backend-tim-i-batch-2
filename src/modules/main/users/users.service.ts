@@ -122,6 +122,7 @@ export class UsersService {
           username: user.username,
           email: user.email,
           role: user.role,
+          num_phone: user.num_phone,
         },
       };
     }
@@ -140,7 +141,7 @@ export class UsersService {
           username: user.username,
           email: user.email,
           role: user.role,
-          
+          num_phone: user.num_phone,
         },
       };
     }

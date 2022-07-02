@@ -11,7 +11,7 @@ export class BeritaRepository extends Repository<Property> {
     const query = this.createQueryBuilder('berita');
     return await query.getMany();
   }
-
+ 
   async createBerita(
     createBeritaDto: CreatePropertyDto,
     @Request() req,
@@ -54,4 +54,4 @@ export class BeritaRepository extends Repository<Property> {
       throw new InternalServerErrorException(e);
     }
   }
-}
+} 

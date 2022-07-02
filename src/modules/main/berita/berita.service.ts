@@ -17,12 +17,27 @@ export class BeritaService {
     return await this.beritaRepository.getAllBerita();
   }
 
+  async getAllProperty(): Promise<Property[]> {
+    const property = await this.beritaRepository.query(
+      'SELECT * FROM pembeli INNER JOIN property ON pembeli.id = property.pembeliId ',
+    );
+    return property;
+  }
+
   async getBeritaById(id: string): Promise<Property> {
     const berita = await this.beritaRepository.findOne(id);
     if (!berita) {
-      throw new NotFoundException(`Berita dengan id ${id} tidak ditemukan`);
+      throw new NotFoundException(`Property dengan id ${id} tidak ditemukan`);
     }
     return berita;
+  }
+
+  async getPropertyById(id: string): Promise<Property> {
+    const propertyDetail = await this.beritaRepository
+      .createQueryBuilder('property')
+      .where('property.id = :id', { id })
+      .innerJoinAndSelect('property.pembeli', 'pembeli');
+    return propertyDetail.getOne();
   }
 
   async createBerita(createBeritaDto: CreatePropertyDto, @Request() req) {
@@ -97,7 +112,7 @@ export class BeritaService {
   async deleteBerita(id: string): Promise<void> {
     const result = await this.beritaRepository.delete(id);
     if (result.affected == 0) {
-      throw new NotFoundException(`Berita dengan id ${id} tidak ditemukan`);
+      throw new NotFoundException(`Property dengan id ${id} tidak ditemukan`);
     }
   }
 }

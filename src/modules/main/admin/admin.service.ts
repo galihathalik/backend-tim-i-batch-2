@@ -19,7 +19,7 @@ export class AdminService {
     );
 
     const getTotalDataPembeli = await this.pembeliRepository.query(
-      'SELECT COUNT(*) as totalPenumpang FROM penumpang',
+      'SELECT COUNT(*) as totalPembeli FROM pembeli',
     );
 
     const objResult = {

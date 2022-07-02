@@ -93,9 +93,9 @@ export class AuthService {
           const access_token = await this.createAccessToken(user);
           const refresh_token = await this.createRefreshToken(user);
 
-          return {
+          return { 
             status: 201,
-            message: `Berhasil Login Sebagai Penumpang`,
+            message: `Berhasil Login Sebagai Pembeli`,
             access_token,
             refresh_token,
             payload: {

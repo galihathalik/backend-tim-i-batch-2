@@ -44,11 +44,23 @@ export class BeritaController {
     return this.beritaService.getAllBerita();
   }
 
+  @Get('property')
+  getAllPropertyPembeli(@GetProperty() property: Property) {
+    return this.beritaService.getAllProperty();
+  }
+
   @Get('/:id')
   getBeritaById(
     @Param('id', UUIDValidationPipe) id: string,
   ): Promise<Property> {
     return this.beritaService.getBeritaById(id);
+  }
+
+  @Get('property-detail/:id')
+  @UseGuards(RoleGuard(Role.Admin))
+  @UseGuards(JwtGuard)
+  getPropertyById(@Param('id', UUIDValidationPipe) id: string) {
+    return this.beritaService.getPropertyById(id);
   }
 
   @Post('buat-property')

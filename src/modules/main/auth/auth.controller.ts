@@ -33,7 +33,7 @@ export class AuthController {
 
   @Post('login-pembeli')
   async loginPenumpang(@Body() LoginDto: LoginDto): Promise<LoginResponse> {
-    return this.authService.loginPembeli(LoginDto);
+    return this.authService.loginPembeli(LoginDto); 
   }
 
   @Post('refresh-token')
