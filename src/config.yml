@@ -1,0 +1,16 @@
+server:
+  host: 'localhost'
+  port: 3000
+
+db:
+  mysql:
+    host: 'localhost'
+    port: 3306
+    user: 'root'
+    password: ''
+    database: 'ohome_360'
+  redis:
+    host: 'localhost'
+    port: 6379
+    password: 'root'
+    db: 0
