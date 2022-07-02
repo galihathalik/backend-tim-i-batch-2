@@ -38,7 +38,7 @@ export class UserRepository extends Repository<User> {
   }
 
   async registerPembeli(createUserDto: CreateUserDto, role) {
-    const { username, password, email } = createUserDto;
+    const { username, password, email, num_phone } = createUserDto;
 
     const user = this.create();
     user.username = username;
@@ -46,6 +46,7 @@ export class UserRepository extends Repository<User> {
     user.password = await bcrypt.hash(password, user.salt);
     user.email = email;
     user.role = role;
+    user.num_phone = num_phone;
 
     const checkEmail = await this.findOne({ where: { email: user.email } });
     if (checkEmail) {
@@ -67,7 +68,7 @@ export class UserRepository extends Repository<User> {
   }
 
   async registerAdmin(createUserDto: CreateUserDto, role) {
-    const { username, password, email } = createUserDto;
+    const { username, password, email, num_phone } = createUserDto;
 
     const user = this.create();
     user.username = username;
@@ -75,6 +76,7 @@ export class UserRepository extends Repository<User> {
     user.password = await bcrypt.hash(password, user.salt);
     user.email = email;
     user.role = role;
+    user.num_phone = num_phone;
 
     const checkEmail = await this.findOne({ where: { email: user.email } });
     if (checkEmail) {
